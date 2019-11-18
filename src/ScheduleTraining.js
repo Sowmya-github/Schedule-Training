@@ -37,10 +37,10 @@ handelFilter=(event)=>{
   console.log("state", this.state.filterString)
 }
 
-  filteredTraining=
-   this.state.meetingListArray.filter((meetingarray)=>{
-     return meetingarray.training===this.state.filterString
-   })
+  // filteredTraining=
+  //  this.state.meetingListArray.filter((meetingarray)=>{
+  //    return meetingarray.training===this.state.filterString
+  //  })
    //console.log(filteredTraining);
    
  
