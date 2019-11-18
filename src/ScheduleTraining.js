@@ -14,9 +14,10 @@ class ScheduleTraining extends Component {
         duration: "",
         meetingroom: ""
       },
-      meetingListArray: []
+      meetingListArray: [],
+      filterString:""
     };
-    this.handelInput = this.handelInput.bind(this);
+    // this.handelInput = this.handelInput.bind(this);
   }
 
   handelInput = event => {
@@ -28,6 +29,21 @@ class ScheduleTraining extends Component {
     this.setState({ meetingList: oldState });
     console.log("Old State", oldState);
   };
+
+handelFilter=(event)=>{
+  const filter=event.target.value;
+  this.setState({filterString:filter});
+  console.log("filter",filter);
+  console.log("state", this.state.filterString)
+}
+
+  filteredTraining=
+   this.state.meetingListArray.filter((meetingarray)=>{
+     return meetingarray.training===this.state.filterString
+   })
+   //console.log(filteredTraining);
+   
+ 
 
   afterSubmission = event => {
     console.log("Inside submit");
@@ -48,8 +64,19 @@ class ScheduleTraining extends Component {
         console.log(this.state);
       }
     );
-    this.renderDynamicMeetings();
+    //this.renderDynamicMeetings();
   };
+
+  // editMeeting=(event, trainingid)=>{
+  //   const trainingIndex=this.state.meetingListArray.findIndex(training=>{
+  //     return training.trainingid===trainingid;
+  //   });
+
+  //   const train={
+  //     ...this.state.meetingListArray[trainingIndex]
+  //   };
+  //   train.training.value=train.training;
+  // }
 
   renderDynamicMeetings = () => {
     console.log("TRAILS", this.state.meetingListArray)
@@ -64,6 +91,7 @@ class ScheduleTraining extends Component {
                 <h3 className="card-text">Department : {t.department} </h3>
                 <h3 className="card-text">Date : {t.date} </h3>
                 <h3 className="card-text">Duration : {t.duration} </h3>
+                {/* <h4 className="card-text" onClick={(event)=>this.editMeeting(event, t.training)}>edit</h4> */}
                 <ul className="list-group list-group-flush">
               </ul>
               </div>
@@ -169,9 +197,20 @@ class ScheduleTraining extends Component {
                 
                 <input type="cancel" id="cancel">Cancel</input> */}
           {/* <button>Submit</button> */}
-          <input type="submit" value="Submit" />
-          {this.renderDynamicMeetings()}
+          <div className="form-section">
+               <input type="submit" value="Submit" />
+          </div>
+          
+          
         </form>
+        <div>
+          <h2>Training List</h2>
+          <label htmlFor="filter">filter : </label>
+          <input type="text" className="filter" placeholder="Enter training name" name="filter"
+          onChange={this.handelFilter}></input>
+          <input type="submit" value="Submit"  onClick={this.filteredTraining}/>
+          {this.renderDynamicMeetings()}
+        </div>
       </div>
     );
   }

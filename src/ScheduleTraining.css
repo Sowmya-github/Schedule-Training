@@ -6,23 +6,34 @@
 }
 .form-section{
     display:block;
-   
+   text-align: center;
 }
 
 label{
     display:inline-block;
-    clear:both;
+    width: 20%;
+    text-align: right;
     
 }
 
 input{
-    display: inline-block;
+    /* display: inline-block; */
     margin-bottom: 10px;
     
 }
 
 .card {
-    background-color: aquamarine;
+    margin: 20px 0;
+    background-color: rgb(224, 221, 221);
+    border:1px solid rgb(190, 189, 189);
+    box-shadow: 5px 10px rgb(207, 205, 205);
+    border-radius: 5px;
+}
+.form-container{
+    margin: auto;
+    width:50%;
+    text-align: center
+    
 }
 
 .form-main{

@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
-import {Router, Route, browserHistory} from "react-router";
+//import {Router, Route, browserHistory} from "react-router";
 //import { createBrowserHistory } from 'history'
 import ScheduleTraining from "./ScheduleTraining";
-import TrainingList from "./TrainingList";
+//import TrainingList from "./TrainingList";
 
 
 class App extends Component{
@@ -15,13 +15,13 @@ class App extends Component{
 
   render(){
     return(
-      // <div>
-      //   <ScheduleTraining/>
-      // </div>
-      <Router history={browserHistory}>
-      <Route path={"/"} component={TrainingList}/>
-      <Route path={"/schedule"} component={ScheduleTraining}/>
-      </Router> 
+      <div>
+        <ScheduleTraining/>
+      </div>
+      // <Router history={browserHistory}>
+      // <Route path={"/"} component={TrainingList}/>
+      // <Route path={"/schedule"} component={ScheduleTraining}/>
+      // </Router> 
     );
   }
 

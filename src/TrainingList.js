@@ -21,13 +21,13 @@ class TrainingList extends Component{
                     <div>
                         <button onClick={this.handleNewSchedule}>Schedule new Training</button>
                     </div>
-                    <div>
+                    {/* <div>
                     <ol>
                     <li>Gss</li>
                     <li>TestTree</li>
                     <li>vServe</li>
                 </ol>
-                    </div>
+                    </div> */}
                 </div>
                 
             </div>
